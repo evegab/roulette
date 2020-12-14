@@ -39,6 +39,4 @@ public class RouletteModel implements Serializable {
 	public void setWinningNumber(int winningNumber) {
 		WinningNumber = winningNumber;
 	}
-	
-	
 }
