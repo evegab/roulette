@@ -1,4 +1,6 @@
 package com.roulette.roulette.config.repository;
+import java.util.Map;
+
 import org.springframework.stereotype.Repository;
 import com.roulette.roulette.model.RouletteModel;
 @Repository
@@ -29,9 +31,14 @@ public class RouletteRepository implements RouletteInterface {
 	}
 
 	@Override
-	public void closeRoulette(String id) {
+	public Map<String, RouletteModel> closeRoulette(String id) {
+		return null;
 		// TODO Auto-generated method stub
 		
 	}
-
+	@Override
+	public Map<String, RouletteModel> listAllRoulettes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
