@@ -8,12 +8,14 @@ import com.roulette.roulette.model.RouletteModel;
 public class RedisConfiguration {
 	@Bean
 	JedisConnectionFactory jedisConnectionFactory() {
+		
 		return new JedisConnectionFactory();
 	}
 	@Bean
 	RedisTemplate<String, RouletteModel> redisTemplate(){
 		final RedisTemplate<String, RouletteModel> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(jedisConnectionFactory());
+        
         return redisTemplate;
 	}
 }
