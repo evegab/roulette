@@ -1,9 +1,6 @@
 package com.roulette.roulette.config.repository;
-
 import java.util.Map;
-
 import com.roulette.roulette.model.RouletteModel;
-
 public interface RouletteInterface {
     boolean createRoulette(String id,RouletteModel roulette);
     boolean openRoulette(String id);

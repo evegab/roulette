@@ -23,8 +23,10 @@ public class RouletteRepository implements RouletteInterface {
 	public boolean createRoulette(String id, RouletteModel roulette) {
 		try{ 
 			hashOperations.put(KEY, id, roulette);
+			
 			return true;
 		}catch (Exception e) {
+			
 			return false;
 		}
 	}
@@ -34,18 +36,12 @@ public class RouletteRepository implements RouletteInterface {
 			RouletteModel roulette = (RouletteModel) hashOperations.get(KEY, id);
 			roulette.setStatus(true);
 			hashOperations.put(KEY, roulette.getId(),roulette);
+			
 			return true;
 		}catch (Exception e) {
+			
 			return false;
 		}
-	}
-	public void betOnColour(String rouletteid, BetModel betModel) {
-		// TODO Auto-generated method stub
-
-	}
-	public void betOnNumber(String rouletteid, BetModel betModel) {
-		// TODO Auto-generated method stub
-
 	}
 	@Override
 	public Map<String, RouletteModel> closeRoulette(String id) {
@@ -54,23 +50,30 @@ public class RouletteRepository implements RouletteInterface {
 			roulette.setStatus(false);
 			roulette.closeBets();
 			hashOperations.put(KEY, roulette.getId(),roulette);
+			
 			return null;
 		}catch (Exception e) {
+			
 			return null;
 		}
 	}
 	@Override
 	public Map<String, RouletteModel> listAllRoulettes() {
+		
 		return hashOperations.entries(KEY);
 	}
 	@Override
 	public void betOnNumber(String idRoulette, int number, int amount) {
 		// TODO Auto-generated method stub
-
 	}
 	@Override
 	public void betOnColour(String idRoulette, String colour, int amount) {
 		// TODO Auto-generated method stub
-
+	}
+	public void betOnColour(String rouletteid, BetModel betModel) {
+		// TODO Auto-generated method stub
+	}
+	public void betOnNumber(String rouletteid, BetModel betModel) {
+		// TODO Auto-generated method stub
 	}
 }

@@ -26,12 +26,15 @@ public class RouletteController {
     	RouletteModel roulette = new RouletteModel(id);
         boolean response = rouletteRepository.createRoulette(id, roulette);
         if (response)
+        	
         	return new ResponseEntity<String>("ok", HttpStatus.OK);
+        
         return new ResponseEntity<String>("fail", HttpStatus.BAD_REQUEST);
     }
     @PutMapping("/roulettes/open/{rouletteid}")
     public ResponseEntity<String> openRoulette(@PathVariable String rouletteid) {
         rouletteRepository.openRoulette(rouletteid);
+        
         return new ResponseEntity<String>("ok", HttpStatus.OK);
     }
     @PutMapping("/roulettes/bet/{rouletteid}/{keyword}")
@@ -40,21 +43,26 @@ public class RouletteController {
     		) {
         if (keyword == "number") {
         	rouletteRepository.betOnNumber(rouletteid, betModel);
+        	
         	return new ResponseEntity<String>("ok", HttpStatus.OK);
         }else if(keyword == "colour") {
         	rouletteRepository.betOnColour(rouletteid, betModel);
+        	
         	return new ResponseEntity<String>("ok", HttpStatus.OK);
         }else {
+        	
         	return new ResponseEntity<String>("ok", HttpStatus.BAD_REQUEST);
         }
     }
     @PutMapping("/roulettes/close/{rouletteid}")
     public ResponseEntity<Map<String,RouletteModel>> closeRoulette(@PathVariable String rouletteid) {
         rouletteRepository.closeRoulette(rouletteid);
+        
         return new ResponseEntity<Map<String,RouletteModel>>(rouletteRepository.closeRoulette(rouletteid), HttpStatus.OK);
     }
 	@GetMapping("/roulettes")
 	 public Map<String, RouletteModel> listRoulettes() {
+		
         return rouletteRepository.listAllRoulettes();
     }
 }
